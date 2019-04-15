@@ -9,7 +9,7 @@ This project aims to detect weapon from Xray images. The whole pipeline is built
   <li> mxnet == 1.2.1 </li>
   <li> numpy >= 1.14.6 </li>
 </ul>
-Do pip install <package> if missing.
+Do pip install <package> if any of them is missing.
 
 ## Annotation
 
