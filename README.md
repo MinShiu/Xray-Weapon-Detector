@@ -2,6 +2,15 @@
 
 This project aims to detect weapon from Xray images. The whole pipeline is built on AWS sagemaker. For more information, please refer to https://aws.amazon.com/sagemaker/
 
+## Requirements:
+<ul>
+  <li> cv2 >= 3.0.0 </li>
+  <li> socketio == 4.0.0 </li>
+  <li> mxnet == 1.2.1 </li>
+  <li> numpy >= 1.14.6 </li>
+</ul>
+Do pip install <package> if missing.
+
 ## Annotation
 
 For this project. I used LabelBox for annotating images. URL: https://labelbox.com/. There is some scripts inside this repo to help converting different annotation format to json format, which is used for training at sagemaker later.
