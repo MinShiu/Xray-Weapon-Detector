@@ -19,8 +19,6 @@ The model can be deploy in 2 ways.
 -Run <code> python streamer_with_cloud_model.py </code> to run main program.  
 
 2. Deploy locally. The object detection model is trained using mxnet and some of the layers needs to be removed before entering deployment mode. See https://discuss.mxnet.io/t/deploy-sagemaker-trained-model-locally/1934 and https://github.com/zhreshold/mxnet-ssd#convert-model-to-deploy-mode for more details. 
-
-My model links (Processed and ready to deploy): https://drive.google.com/open?id=1zrKmQUDI7S0acSgavSw5BEs-62e3txt- 
-
 -Run <code>python streamer.py</code> to run main program.
 
+My model links (Processed and ready to deploy): https://drive.google.com/open?id=1zrKmQUDI7S0acSgavSw5BEs-62e3txt- 
