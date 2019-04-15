@@ -1,3 +1,11 @@
+## In order to use this script, make sure you have your endpoint configured on sagemaker, 
+## and place your aws_secret_key at ~/.aws/credentials. Refer to https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html#configuration
+## SocketIO is optional as it acts as a bridge for my detector and webapp to communicate
+## Variables to be modified:
+## sagemaker endpoint (line25) - point to your sagemaker endpoint name
+## synset_path (line27) - classes.txt that contains all the string of classes on every line
+## resp (line67) - streaming address, note that this is not stream as a video but image snapshot. Use VideoCapture to load vid.
+
 import cv2
 import time
 import json

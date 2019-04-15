@@ -1,3 +1,9 @@
+## SocketIO is optional as it acts as a bridge for my detector and webapp to communicate
+## Variables to be modified:
+## synset_path (line30) - classes.txt that contains all the string of classes on every line
+## network_prefix (line43) - path and predix to your model
+## resp (line68) - streaming address, note that this is not stream as a video but image snapshot. Use VideoCapture to load vid.
+
 import cv2
 import time
 import json
