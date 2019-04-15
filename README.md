@@ -1,27 +1,26 @@
-# ChartApp
+# XRAY Detector
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.3.
+This project aims to detect weapon from Xray images. The whole pipeline is built on AWS sagemaker. For more information, please refer to https://aws.amazon.com/sagemaker/
 
-## Development server
+## Annotation
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+For this project. I used LabelBox for annotating images. URL: https://labelbox.com/. There is some scripts inside this repo to help converting different annotation format to json format, which is used for training at sagemaker later.
 
-## Code scaffolding
+## Training
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+All the relevant training process can be found at https://github.com/awslabs/amazon-sagemaker-examples/blob/master/introduction_to_amazon_algorithms/object_detection_pascalvoc_coco/object_detection_image_json_format.ipynb
+Note: A sample json annotation format file is uploaded in this repo. Use it as a reference.
 
-## Build
+## Deployment
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+The model can be deploy in 2 ways.
 
-## Running unit tests
+1. Deploy using sagemaker endpoint configuration. See how it does: https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works-hosting.html
+-Run <code> python streamer_with_cloud_model.py </code> to run main program.  
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+2. Deploy locally. The object detection model is trained using mxnet and some of the layers needs to be removed before entering deployment mode. See https://discuss.mxnet.io/t/deploy-sagemaker-trained-model-locally/1934 and https://github.com/zhreshold/mxnet-ssd#convert-model-to-deploy-mode for more details. 
 
-## Running end-to-end tests
+My model links (Processed and ready to deploy): https://drive.google.com/open?id=1zrKmQUDI7S0acSgavSw5BEs-62e3txt- 
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+-Run <code>python streamer.py</code> to run main program.
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
