@@ -1,3 +1,6 @@
+## Xray Image Detection Script
+## Notes: Always check the stream url, model path and input image size before running the script
+
 import cv2
 import time
 import json
@@ -13,6 +16,7 @@ from collections import namedtuple
 def handleBoundaries(val, maxval):
     return 0 if val < 0 else int(maxval) if val > maxval else val
 
+## Tracker and Sio initialization
 sio = socketio.Client()
 tracker = cv2.TrackerKCF_create()
 
@@ -69,8 +73,8 @@ while True:
         ym = int(box[1])
         w = int(box[2])
         h = int(box[3])
-        p1 = (xm, ym)
-        p2 = (xm+w, ym+h)
+        p1 = (xm, ym)  #p1 is the top left of image
+        p2 = (xm+w, ym+h)  #p2 is the bottom right of image
         #cv2.rectangle(frame, p1, p2, (255,0,0), 2, 1)
         frame_cp = frame[:, :p1[0]]
         #frame_cp = frame[:, p2[0]:]
@@ -88,16 +92,16 @@ while True:
             printOnce = False
         continue
     
+    ## Preprocess image
+    img = cv2.cvtColor(frame_cp, cv2.COLOR_BGR2RGB)
+    img = cv2.resize(img, (512,512))
+    img = np.swapaxes(img, 0, 2)
+    img = np.swapaxes(img, 1, 2)
+    img = img[np.newaxis, :]
+
     ## Detection (happened every 1 sec)
     if resume and (time.time() - current_time > frame_skipping):
         current_time = time.time()
-
-        ## Preprocess image
-        img = cv2.cvtColor(frame_cp, cv2.COLOR_BGR2RGB)
-        img = cv2.resize(img, (512,512))
-        img = np.swapaxes(img, 0, 2)
-        img = np.swapaxes(img, 1, 2)
-        img = img[np.newaxis, :]
         print('Results:')
 
         ## Forward image to network
