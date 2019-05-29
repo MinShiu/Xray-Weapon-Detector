@@ -63,7 +63,6 @@ while True:
     if not ret:
         break
     frame = imutils.resize(frame, width=512)[:, 55:]
-    height, width, _ = frame.shape
     
     ## Update tracker
     (success, box) = tracker.update(frame)
@@ -84,6 +83,8 @@ while True:
             #frame_cp = frame[:, p2[0]-20:]
     else:
         frame_cp = frame
+
+    height, width, _ = frame_cp.shape
 
     ## Waiting for signal to resume detection
     if not resume:
@@ -137,7 +138,7 @@ while True:
             prob_list.append(tuple([class_name, xmin, ymin, xmax-xmin, ymax-ymin]))
 
             ## Encode threat image
-            detected_frame = frame[ymin:ymax, xmin:xmax]
+            detected_frame = frame_cp[ymin:ymax, xmin:xmax]
             retval, buffer = cv2.imencode('.jpg', detected_frame)
             jpg_as_text = base64.b64encode(buffer)
             weapon_list.append(class_name)
