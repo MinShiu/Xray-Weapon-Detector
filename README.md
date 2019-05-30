@@ -17,8 +17,8 @@ For this project. I used LabelBox for annotating images. URL: https://labelbox.c
 
 ## Training
 
-All the relevant training process can be found at https://github.com/awslabs/amazon-sagemaker-examples/blob/master/introduction_to_amazon_algorithms/object_detection_pascalvoc_coco/object_detection_image_json_format.ipynb
-Note: A sample json annotation format file is uploaded in this repo. Use it as a reference.
+All relevant training process can be found at https://github.com/awslabs/amazon-sagemaker-examples/blob/master/introduction_to_amazon_algorithms/object_detection_pascalvoc_coco/object_detection_image_json_format.ipynb
+Note: A sample json annotation format file (and it's corresponded image) is uploaded to this repo for reference.
 
 ## Deployment
 
