@@ -31,3 +31,4 @@ The model can be deploy in 2 ways.
 -Run <code>python streamer.py</code> to run main program.
 
 My model links (Processed and ready to deploy): https://drive.google.com/open?id=1zrKmQUDI7S0acSgavSw5BEs-62e3txt- 
+Reference : https://docs.aws.amazon.com/sagemaker/latest/dg/object-detection-api-config.html
