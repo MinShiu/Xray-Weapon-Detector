@@ -15,6 +15,8 @@ Do pip install <package> if any of them is missing.
 
 For this project. I used LabelBox for annotating images. URL: https://labelbox.com/. There is some scripts inside this repo to help converting different annotation format to json format, which is used for training at sagemaker later.
 
+**If you wish to train on local, you have to use a different approach and training format. See https://gluon-cv.mxnet.io/build/examples_datasets/detection_custom.html#lst-label-for-gluoncv-and-mxnet for more details.
+
 ## Training
 
 All relevant training process can be found at https://github.com/awslabs/amazon-sagemaker-examples/blob/master/introduction_to_amazon_algorithms/object_detection_pascalvoc_coco/object_detection_image_json_format.ipynb
